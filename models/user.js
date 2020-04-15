@@ -35,5 +35,5 @@ var userSchema = new mongoose.schema({
      }
      
 
-})
+});
 module.exports(user, userSchema);
