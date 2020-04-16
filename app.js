@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require ('mongoose');
+var passport = require('passport')
 var mongo = require ('mongodb');
 var server = require('./server');
 
@@ -39,6 +40,9 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+//passport configuration 
+
 
 // error handler
 app.use(function(err, req, res, next) {

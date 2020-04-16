@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var user = require('../models/user');
 
-/* GET home page. */
+
+/* GET login page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'PROJECT'});
+  res.render('login', { user: req.user});
 });
+
 
 module.exports = router;
