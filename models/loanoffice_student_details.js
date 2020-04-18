@@ -3,7 +3,7 @@ var mongoose= require('mongoose');
 var schema = mongoose.schema()
 
 
-var studentSchema = mongoose.schema({
+var student_Loan_detailsSchema = mongoose.schema({
 
     reg_no:{
         type: String,
@@ -52,5 +52,6 @@ var studentSchema = mongoose.schema({
        type:String,
        require:true
    }    
-})
-module.exports={student, studentSchema}
+});
+var student_Loan_details = mongoose.models('student_loan_details', student_Loan_detailsSchema);
+exports.student_Loan_details=student_Loan_details;

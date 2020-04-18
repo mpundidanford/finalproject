@@ -45,5 +45,6 @@ var studentSchema = mongoose.schema({
        type:String,
        require:true
    }    
-})
-module.exports={student, studentSchema}
+});
+var student = mongoose.models('student', studentSchema);
+exports.student= student;

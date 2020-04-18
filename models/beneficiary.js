@@ -57,5 +57,6 @@ var beneficiarySchema = mongoose.schema({
        type:String,
        require:true
    }    
-})
-module.exports={beneficiary, beneficiarySchema}
+});
+var beneficiary = mongoose.models('beneficiary', beneficiarySchema)
+exports.beneficiary = beneficiary;
