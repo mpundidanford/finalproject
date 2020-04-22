@@ -9,10 +9,7 @@ var studentSchema = mongoose.schema({
         type: String,
         require : true,
        },
-   form_four_number:{
-        type: String,
-        require : true,
-       },
+       
    firstName:{
         type: Text,
         require : true,

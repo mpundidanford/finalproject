@@ -10,3 +10,15 @@ var userController = {};
 userController.login= function(req, res){
     res.render('login');
 }
+//post login 
+userController.doLogin = (req, res, next)=>{
+    passport.authenticate('local')(req, res , function(){
+        res.redirect('/');
+    });
+} ;
+
+//logout
+userController.logout = (req, res, )=>{
+    req.logout();
+    res.redirect('/');
+};
