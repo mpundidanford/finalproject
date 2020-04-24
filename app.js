@@ -43,8 +43,21 @@ app.use(function(req, res, next) {
 });
 
 //passport configuration 
-app.use(passport.authenticate());
+app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 
 
 //session configuration
