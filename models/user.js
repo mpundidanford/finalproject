@@ -1,9 +1,9 @@
 var express = require( 'express');
 var mongoose = require ('mongoose');
-var schema = mongoose.schema();
+//var schema = mongoose.schema();
 
 
-var userSchema = new mongoose.schema({
+var userSchema = new mongoose.Schema({
      _id:{
          type: String,
          require : true,
@@ -37,5 +37,5 @@ var userSchema = new mongoose.schema({
 
 });
 
-var user = mongoose.models('user', userSchema);
+var user = mongoose.model('user', userSchema);
 exports.user= user;

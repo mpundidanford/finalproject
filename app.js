@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost:27017/project', {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var passportRouter = require('./passport/passport')
 
 var app = express();
 
@@ -42,7 +43,17 @@ app.use(function(req, res, next) {
 });
 
 //passport configuration 
+app.use(passport.authenticate());
+app.use(passport.session());
 
+
+//session configuration
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 // error handler
 app.use(function(err, req, res, next) {
