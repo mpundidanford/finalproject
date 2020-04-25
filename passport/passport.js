@@ -2,6 +2,7 @@ var express = require('express')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose')
+var app = express()
 
 
 
@@ -21,24 +22,27 @@ passport.use(new LocalStrategy(
     }
   ));
   // login post redirect
-  app.post('/login',
+  app.post('login',
   passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 );
 
 //login
-req.login(user, function(err) {
+app.get((req, res)=>{
+  req.login(user, function(err) {
     if (err) { return next(err);
      }
-     if(username : loanofficer){
-         return res.redirect('../views/loanoffier')
-     }
-     else ifusername : loanofficer){
-        return res.redirect('../views/loanoffier')
-    }
+    //  if(username : loanofficer){
+    //      return res.redirect('../views/loanoffier')
+    //  }
+    //  else ifusername : loanofficer){
+    //     return res.redirect('../views/loanoffier')
+    // }
     return res.redirect('/users/' + req.user.username);
   });
+})
+
 
 
 //logout

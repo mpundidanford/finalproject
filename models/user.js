@@ -1,14 +1,10 @@
 var express = require( 'express');
 var mongoose = require ('mongoose');
-//var schema = mongoose.schema();
+var Schema = mongoose.Schema();
 
 
 var userSchema = new mongoose.Schema({
-     _id:{
-         type: String,
-         require : true,
-
-     },
+     
      email :{
        type : String,
        require: true,

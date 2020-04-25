@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require ('mongoose');
+var session = require('cookie-session')
 var passport = require('passport')
 var mongo = require ('mongodb');
 var server = require('./server');
 
 //create mongo database
-
-const db = 'mongodb://localhost:27017/project'
+mongoose.promise = global.promise;
 mongoose.connect('mongodb://localhost:27017/project', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -45,8 +45,8 @@ app.use(function(req, res, next) {
 //passport configuration 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.cookieParser());
-app.use(express.bodyParser());
+//app.use(express.cookieParser());
+//app.use(express.bodyParser());
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
