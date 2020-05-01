@@ -1,0 +1,15 @@
+{
+  "editor.quickSuggestions": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+"editor.formatOnType": true,
+"launch": {
+
+},
+"python.autoComplete.addBrackets": true,
+"editor.tabCompletion": "on",
+"search.quickOpen.includeSymbols": true,
+"emmet.showSuggestionsAsSnippets": true,
+"javascript.suggest.completeFunctionCalls": true,
+"typescript.suggest.completeFunctionCalls": true
+}

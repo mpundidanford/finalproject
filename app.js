@@ -9,12 +9,15 @@ var passport = require('passport')
 var mongo = require ('mongodb');
 var server = require('./server');
 
-//create mongo database
+
+//connect to mongo database
 mongoose.promise = global.promise;
 mongoose.connect('mongodb://localhost:27017/project', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+}).then(()=>console.log("database connected")).catch((err)=>{
+  console.log(err)
+})
 
 
 

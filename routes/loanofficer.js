@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
          cb(null, __basedir + '/uploads')
     },
     filename: (req, file, cb)=>{
-        cb(null, file.fieldname + ,"-" + Date.now()+ "-" file.originalname)
+        cb(null, file.fieldname + "-" + Date.now()+ "-", file.originalname)
     }
 });
   var upload = multer({storage:storage });
@@ -29,8 +29,8 @@ var storage = multer.diskStorage({
   app.use('', upload.single("uploadfile"), (req, res)=>{
       importExelData2Mongodb(__basedir + '/uploads/' + req.file.filename);
 
-      req.json({'file imported successful', 'file': req.file});
+      req.json({'file imported successful': 'file',req:file});
   });
 
   //import exel/csv file to mongodb
-
+  
